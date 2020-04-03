@@ -6,67 +6,50 @@ public class QuadraticEquation {
         double a;
         double b;
         double c;
-        String line = "";
-        Scanner sc = new Scanner(System.in);
 
-        System.out.println("Введіть а:");
         do {
-            if (sc.hasNext()) {
-                line = sc.next();
-
-                if (isNumeric(line)) {
-                    a = Double.parseDouble(line);
-                    if (a == 0) {
-                        System.out.println("Помилка а != 0");
-                    } else {
-                        System.out.println("Введено число a = " + a);
-                        break;
-                    }
-                } else {
-                    System.out.println("Введено не число a");
-                }
+            System.out.println("Введіть а:");
+            a = enterNumber();
+            if (a == 0) {
+                System.out.println("Помилка а != 0");
+            } else {
+                System.out.println("Введено число a = " + a);
+                break;
             }
-
         } while (true);
 
         System.out.println("Введіть b:");
-        do {
-            if (sc.hasNext()) {
-                line = sc.next();
+        b = enterNumber();
 
-                if (isNumeric(line)) {
-                    b = Double.parseDouble(line);
-                    System.out.println("Введено число b = " + b);
-                    break;
-                } else {
-                    System.out.println("Введено не число b");
-                }
-            }
-
-        } while (true);
         System.out.println("Введіть c:");
-        do {
-            if (sc.hasNext()) {
-                line = sc.next();
-
-                if (isNumeric(line)) {
-                    c = Double.parseDouble(line);
-                    System.out.println("Введено число c = " + c);
-                    break;
-                } else {
-                    System.out.println("Введено не число c");
-                }
-            }
-
-        } while (true);
+        c = enterNumber();
 
         System.out.println("Квадратне рівняння \n" + a + "*x1^2 + " + b + "*x2 + " + c + " = 0");
 
-        QuadEquation v = new QuadEquation(a , b, c);
+        QuadEquation v = new QuadEquation(a, b, c);
         System.out.println(v.result());
 
-
     }
+
+    public static double enterNumber() {
+        double p = 0;
+        String line = "";
+        Scanner sc = new Scanner(System.in);
+        do {
+            if (sc.hasNext()) {
+                line = sc.next();
+                if (isNumeric(line)) {
+                    p = Double.parseDouble(line);
+                    System.out.println("Введено число = " + p);
+                    break;
+                } else {
+                    System.out.println("Введено не число");
+                }
+            }
+        } while (true);
+        return p;
+    }
+
 
     public static boolean isNumeric(String strNum) {
         if (strNum == null) {
