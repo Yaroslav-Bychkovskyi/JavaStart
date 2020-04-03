@@ -6,7 +6,6 @@ public class QuadraticEquation {
         double a;
         double b;
         double c;
-        double x1, x2, D;
         String line = "";
         Scanner sc = new Scanner(System.in);
 
@@ -30,15 +29,6 @@ public class QuadraticEquation {
 
         } while (true);
 
-/*     if (sc.hasNextDouble()) {
-            a = sc.nextDouble();
-            if (a == 0) {
-                System.out.println("Помилка а != 0");
-            }
-        } else {
-            a = 0;
-            System.out.println("Введено не число a");
-        }*/
         System.out.println("Введіть b:");
         do {
             if (sc.hasNext()) {
@@ -72,21 +62,9 @@ public class QuadraticEquation {
 
         System.out.println("Квадратне рівняння \n" + a + "*x1^2 + " + b + "*x2 + " + c + " = 0");
 
-        D = Math.pow(b, 2) - 4 * a * c;
-        System.out.println("D = " + D);
+        QuadEquation v = new QuadEquation(a , b, c);
+        System.out.println(v.result());
 
-        if (D < 0) {
-            System.out.println("Рівняння коренів не має");
-        } else if (D == 0) {
-            x1 = -(b / 2 * a);
-            x2 = x1;
-            System.out.println("Корені равняння: " + x1 + "і" + x2);
-        } else if (D > 0) {
-            x1 = (-b - Math.sqrt(D)) / (2 * a);
-            x2 = (-b + Math.sqrt(D)) / (2 * a);
-            System.out.println("Корені равняння: x1 = " + x1 + " і x2 = " + x2);
-
-        }
 
     }
 
