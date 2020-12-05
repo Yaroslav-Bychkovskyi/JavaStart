@@ -26,26 +26,29 @@ public class TestFile {
         }
         System.out.println(list);
 
-        int [] b = new int[list.size()];
+        int[] b = new int[list.size()];
 
         for (int i = 0; i < list.size(); i++) {
             int c = Integer.parseInt(list.get(i));
             b[i] = c;
+
         }
+
 
         System.out.println(Arrays.toString(b));
         Bubble.sort(b);
         System.out.println(Arrays.toString(b));
 
-        try (FileWriter fw = new FileWriter("test2.txt")){
+        try (FileWriter fw = new FileWriter("test2.txt")) {
 
             for (int i = 0; i < b.length; i++) {
-
-                  fw.write(b[i] +"");
-                  fw.write("\n");
+                if (b[i] > 100) {
+                    fw.write(b[i] + "");
+                    fw.write("\n");
+                }
 
             }
-        }  catch (IOException exc) {
+        } catch (IOException exc) {
             System.out.println("Помилка ввода - вивода: " + exc);
         }
 
