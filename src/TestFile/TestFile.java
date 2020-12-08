@@ -2,34 +2,20 @@ package TestFile;
 
 import com.github.yb.section1_5.Bubble;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class TestFile {
     public static void main(String[] args) {
-        String s;
-        List<String> list = new ArrayList<>();
 
+        FileReader fileReader = new FileReader("test.txt");
 
-        try (BufferedReader br = new BufferedReader(new FileReader("test.txt"))) {
-            while ((s = br.readLine()) != null) {
-                System.out.println(s);
-                list.add(s);
-            }
-        } catch (IOException exc) {
-            System.out.println("Помилка ввода - вивода: " + exc);
-        }
-        System.out.println(list);
+        String s = fileReader.readFile();
+        String[] split = s.split("\n");
 
-        int[] b = new int[list.size()];
+        int[] b = new int[split.length];
 
-        for (int i = 0; i < list.size(); i++) {
-            int c = Integer.parseInt(list.get(i));
+        for (int i = 0; i < split.length; i++) {
+            int c = Integer.parseInt(split[i]);
             b[i] = c;
 
         }
@@ -39,19 +25,18 @@ public class TestFile {
         Bubble.sort(b);
         System.out.println(Arrays.toString(b));
 
-        try (FileWriter fw = new FileWriter("test2.txt")) {
+        String s1 = "";
+        FileWrit fileWrit = new FileWrit("test2.txt");
 
-            for (int i = 0; i < b.length; i++) {
-                if (b[i] > 100) {
-                    fw.write(b[i] + "");
-                    fw.write("\n");
-                }
+        for (int i = 0; i < b.length; i++) {
+            if (b[i] > 100) {
+                s1 = s1 + b[i] +"\n";
 
             }
-        } catch (IOException exc) {
-            System.out.println("Помилка ввода - вивода: " + exc);
-        }
 
+        }
+        fileWrit.fileWriter(s1);
     }
 }
+
 
