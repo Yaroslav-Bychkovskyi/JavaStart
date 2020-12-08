@@ -18,6 +18,12 @@ public class Calculator {
 
     String action() {
         String symbol = in.next();
+        if (symbol.equals("+") || symbol.equals("-") || symbol.equals("*") || symbol.equals("/")) {
+
+        } else {
+            System.out.println("Помилка: ");
+        }
+
         return symbol;
     }
 
@@ -37,17 +43,11 @@ public class Calculator {
 
         if (string.equals("+")) {
             z = x + y;
-        } else
-
-        if (string.equals("-")) {
+        } else if (string.equals("-")) {
             z = x - y;
-        } else
-
-        if (string.equals("*")) {
+        } else if (string.equals("*")) {
             z = x * y;
-        } else
-
-        if (string.equals("/")) {
+        } else if (string.equals("/")) {
             z = x / y;
         } else z = 0;
 
