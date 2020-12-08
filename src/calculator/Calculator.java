@@ -6,7 +6,13 @@ public class Calculator {
     Scanner in = new Scanner(System.in);
 
     int scaner() {
-        int num = in.nextInt();
+        int num = 0;
+        if (in.hasNextInt()) {
+            num = in.nextInt();
+
+        } else {
+            System.out.println("Помилка: ");
+        }
         return num;
     }
 
@@ -28,9 +34,21 @@ public class Calculator {
 
         String string;
         string = calculator.action();
-        if (string.equals("+")) {
 
+        if (string.equals("+")) {
             z = x + y;
+        } else
+
+        if (string.equals("-")) {
+            z = x - y;
+        } else
+
+        if (string.equals("*")) {
+            z = x * y;
+        } else
+
+        if (string.equals("/")) {
+            z = x / y;
         } else z = 0;
 
         System.out.println("Відповідь: ");
