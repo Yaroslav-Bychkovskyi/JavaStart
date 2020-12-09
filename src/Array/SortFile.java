@@ -1,7 +1,7 @@
 package Array;
 
 import TestFile.FileReader;
-import com.github.yb.section1_5.Bubble;
+import TestFile.FileWrit;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -45,16 +45,26 @@ public class SortFile {
 
         List<Integer> result = new ArrayList<>();
 
+        String s2 = "";
+        FileWrit fileWrit = new FileWrit("c.txt");
+
         for (int i = 0; i < a.length; i++) {
-           for (int j = 0; j < b.length; j++) {
+            for (int j = 0; j < b.length; j++) {
                 if (a[i] == b[j]) {
-        //            System.out.println(a[i] + " " +b[j] );
                     result.add(a[i]);
                 }
-
             }
         }
         System.out.println(result);
 
+
+        for (int i = 0; i < result.size(); i++) {
+            if (i == result.size() - 1){
+                s2 = s2 + a[i] + "";
+            }  else {
+                s2 = s2 + a[i] + ", ";
+            }
+        }
+        fileWrit.fileWriter(s2);
     }
 }

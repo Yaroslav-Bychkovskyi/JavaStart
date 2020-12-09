@@ -10,7 +10,7 @@ public class FileWrit {
         this.fileN = fileN;
     }
 
-    void fileWriter(String cont) {
+  public void fileWriter(String cont) {
 
         try (FileWriter fw = new FileWriter(fileN)) {
 
