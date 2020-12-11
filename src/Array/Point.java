@@ -1,7 +1,7 @@
 package Array;
 
 
-public class Point {
+public class Point implements Comparable<Point> {
     public int x;
     public int y;
 
@@ -22,5 +22,24 @@ public class Point {
         Point r = (Point) obj;
         boolean result = this.x == r.x && this.y == r.y;
         return (result);
+    }
+
+    @Override
+    public int compareTo(Point o) {
+
+        if (this.x > o.x) {
+            return 1;
+        }
+        if (this.x < o.x) {
+            return -1;
+        }
+        if (this.y > o.y) {
+            return 1;
+        }
+        if (this.y < o.y) {
+            return -1;
+        }
+
+        return 0;
     }
 }
