@@ -1,26 +1,28 @@
 package Array;
 
-
-public class Point {
+public class Point3D {
     public int x;
     public int y;
+    public int z;
 
-    Point(int x, int y) {
+    Point3D(int x, int y, int z) {
         this.x = x;
         this.y = y;
+        this.z = z;
     }
 
     @Override
     public String toString() {
-        return "Point{" +
+        return "Point3D{" +
                 "x=" + x +
                 ", y=" + y +
+                ", z=" + z +
                 '}';
     }
 
     public boolean equals(Object obj) {
-        Point r = (Point) obj;
-        boolean result = this.x == r.x && this.y == r.y;
+        Point3D d = (Point3D) obj;
+        boolean result = this.x == d.x && this.y == d.y && this.z == d.z;
         return (result);
     }
 }
