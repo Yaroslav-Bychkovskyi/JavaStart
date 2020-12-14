@@ -1,6 +1,7 @@
 package Array;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MassVectorMain {
@@ -23,8 +24,10 @@ public class MassVectorMain {
             points.add(mas[i].head);
             points.add(mas[i].tail);
 
-
         }
+
+        Collections.sort(points);
+
         System.out.println(points);
 
     }
