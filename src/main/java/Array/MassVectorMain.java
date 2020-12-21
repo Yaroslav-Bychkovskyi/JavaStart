@@ -11,6 +11,7 @@ public class MassVectorMain {
 
         VectorMain vectorMain = new VectorMain();
 
+
         List<Point> points = new ArrayList<>();
 
         for (int i = 0; i < vectorMain.mas.length; i++) {
@@ -25,6 +26,19 @@ public class MassVectorMain {
 
         Collections.sort(points);
         System.out.println(points);
+
+        CoordinateBoard coordinateBoard = new CoordinateBoard(-10, 10, -10, 10);
+        CoordinateBoard coordinateBoard2 = new CoordinateBoard(-50, 50, -50, 50);
+
+        for (int i = 0; i < points.size(); i++) {
+            if (coordinateBoard.contains(points.get(i))){
+                System.out.println(points.get(i));
+
+            }
+            if (coordinateBoard2.contains(points.get(i))){
+                System.out.println(points.get(i));
+            }
+        }
 
     }
 }
